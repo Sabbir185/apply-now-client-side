@@ -1,0 +1,53 @@
+.input-width {
+    width: 30%;
+    float: left;
+}
+
+.jobType {
+    width: 15%;
+    margin: 0 10px;
+    float: left;
+}
+
+.search-form {
+    margin: 8% 0 0 9%;
+}
+
+.suggestion {
+    margin: 2% 0 0 9%;
+}
+
+.keyword{
+    background-color: rgba(30, 143, 255, 0.596);
+    border-radius: 5px;
+    padding: 4px 8px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.keyword:hover{
+    background-color: rgba(30, 143, 255, 0.952);
+}
+
+
+@media only screen and (max-width: 669px) {
+    .input-width {
+        width: 100%;
+        display: block;
+        margin-right: 10%;
+    }
+    
+    .jobType {
+        width: 100%;
+        display: block;
+        margin: 10px 0;
+        padding: 0;
+    }
+
+    .search-form {
+        margin: 5%;
+    }
+
+    .suggestion {
+        margin: 2% 0 0 5%;
+    }
+  }
