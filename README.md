@@ -8,6 +8,7 @@ _client side code_
 
 > Technologies
 * ReactJs 
+* Redux 
 * Firebase 
 
 

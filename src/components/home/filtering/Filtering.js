@@ -2,37 +2,33 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import jobVacancy from '../../../images/jobVacancy.png';
 import './Filtering.css';
-// import DataCard from "../dataCard/DataCard";
-import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { getAllPost, popularJobPosts } from "../../../redux/actions/actions";
+import { useHistory } from "react-router-dom";
 
 
 const Filtering = ( ) => {
     const { register, handleSubmit } = useForm();
     const dispatch = useDispatch();
-    const jobData = useSelector((state) => {
-        return state.data.postedData;
-    })
-
-    console.log('new ',jobData);
-    // eslint-disable-next-line no-unused-vars
-    // let [displayHide, setDisplayHide] = useState(false);
+    const history = useHistory();
 
     // search data request
     const onSubmit = async (data) => {
         dispatch(getAllPost(data));
+        if(data.title) {
+            history.push('/jobs');
+        }
     }
 
     // popular keyword data request
     const keySubmit = async (key) => {
         dispatch(popularJobPosts(key));
+        history.push('/jobs');
     } 
 
     return (
-        <div className= "mt-5 bg-search">
+        <main className= "mt-5 bg-search">
             {/* search job with keyword and job type */}
-            {/* style={{ display: `${displayHide ? "none" : ""}` }} */}
             <section >
                 <form onSubmit={handleSubmit(onSubmit)} className="search-form">
                     <div className='input-width'>
@@ -49,9 +45,7 @@ const Filtering = ( ) => {
                 </form>
             </section>
 
-
             {/* popular job */}
-            {/* style={{ display: `${displayHide ? "none" : ""}` }} */}
             <section className='row' >
                 <div className="suggestion col">
                     <h5 className="mb-4"> Popular Keywords : </h5>
@@ -81,15 +75,7 @@ const Filtering = ( ) => {
                 </div>
             </section>
 
-
-            {/* component load with data */}
-            {/* <section>
-                {
-                   data?.map((info) => <DataCard data={info} key={info._id}/> )
-                }
-            </section> */}
-
-        </div>
+        </main>
     );
 };
 
