@@ -1,36 +1,39 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import jobVacancy from '../../../images/jobVacancy.png';
 import './Filtering.css';
-import axios from 'axios'
-import DataCard from "../dataCard/DataCard";
+// import DataCard from "../dataCard/DataCard";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { getAllPost, popularJobPosts } from "../../../redux/actions/actions";
 
 
 const Filtering = ( ) => {
     const { register, handleSubmit } = useForm();
-    
+    const dispatch = useDispatch();
+    const jobData = useSelector((state) => {
+        return state.data.postedData;
+    })
+
+    console.log('new ',jobData);
     // eslint-disable-next-line no-unused-vars
-    let [displayHide, setDisplayHide] = useState(false);
-    let [data, setData] = useState([]);
+    // let [displayHide, setDisplayHide] = useState(false);
 
     // search data request
     const onSubmit = async (data) => {
-       const result = await axios.post('http://localhost:8080/jobPost/search', data);
-       setData(result.data.data);
-       setDisplayHide(result.data.data.length > 0 ? true: false)
+        dispatch(getAllPost(data));
     }
 
     // popular keyword data request
     const keySubmit = async (key) => {
-        const result = await axios.get(`http://localhost:8080/jobPost/popularPost/${key}`);
-        setData(result.data.data);
-        setDisplayHide(result.data.data.length > 0 ? true: false); 
+        dispatch(popularJobPosts(key));
     } 
 
     return (
         <div className= "mt-5 bg-search">
             {/* search job with keyword and job type */}
-            <section style={{ display: `${displayHide ? "none" : ""}` }}>
+            {/* style={{ display: `${displayHide ? "none" : ""}` }} */}
+            <section >
                 <form onSubmit={handleSubmit(onSubmit)} className="search-form">
                     <div className='input-width'>
                         <input {...register("title")} className="form-control" placeholder="Enter keyword... ex: nodejs, reactjs etc"/>
@@ -48,7 +51,8 @@ const Filtering = ( ) => {
 
 
             {/* popular job */}
-            <section className='row' style={{ display: `${displayHide ? "none" : ""}` }}>
+            {/* style={{ display: `${displayHide ? "none" : ""}` }} */}
+            <section className='row' >
                 <div className="suggestion col">
                     <h5 className="mb-4"> Popular Keywords : </h5>
                     <span className="keyword" onClick={() => keySubmit('nodejs')}>Nodejs</span>
@@ -79,11 +83,11 @@ const Filtering = ( ) => {
 
 
             {/* component load with data */}
-            <section>
+            {/* <section>
                 {
                    data?.map((info) => <DataCard data={info} key={info._id}/> )
                 }
-            </section>
+            </section> */}
 
         </div>
     );
