@@ -2,9 +2,23 @@
     margin: 0 5%;
 }
 
+/* newxt previous control */
+.next-previous {
+   text-align: center;
+}
+.next-previous > img{
+    width: 45px;
+    transition: all .2s ease-out;
+}
+.next-previous > img:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .display-control {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
 }
 
 @media only screen and (max-width: 600px) {

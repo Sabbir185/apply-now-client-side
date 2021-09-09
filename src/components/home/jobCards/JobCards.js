@@ -2,7 +2,6 @@ import React from 'react';
 import './JobCards.css'
 
 const JobCard = (props) => {
-    console.log('from card ', props.data)
     const { title, jobType, company, country } = props.data;
 
     // string first character Capital letter

@@ -2,18 +2,18 @@ import {user_request, get_all_job_post, loading_error} from './types';
 import axios from 'axios';
 
 // get searching job post
-export const getAllPost = (payload) => {
+export const getAllPost = (payload, page = 1 ) => {
     return async (dispatch) => {
         try {
             dispatch({
                 type: user_request,
             })
 
-            const postedData = await axios.post('http://localhost:8080/jobPost/search', payload);
+            const postedData = await axios.post(`http://localhost:8080/jobPost/jobs?page=${page}&limit=3`, payload);
 
             dispatch({
                 type: get_all_job_post,
-                payload: postedData.data.data,
+                payload: postedData.data,
             })
             
         } catch (error) {
@@ -38,7 +38,7 @@ export const popularJobPosts = ( key ) => {
 
             dispatch({
                 type: get_all_job_post,
-                payload: postedData.data.data.reverse(),
+                payload: postedData.data,
             })
             
         } catch (error) {
