@@ -1,0 +1,15 @@
+.recent-title {
+    display: block;
+    border-bottom: 3px double darkturquoise;
+    text-align: center;
+    margin: 0 20px;  
+}
+
+@media only screen and (max-width: 600px) {
+    .recent-title {
+        display: block;
+        border-bottom: 3px double darkturquoise;
+        text-align: center;
+        margin: 10% 20%;  
+    }
+}

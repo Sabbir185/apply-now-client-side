@@ -1,5 +1,13 @@
-import {user_request, get_all_job_post, loading_error} from './types';
+import {
+    user_request, 
+    get_all_job_post, 
+    loading_error,
+    jobData,
+    getAllData,
+    jobError
+} from './types';
 import axios from 'axios';
+
 
 // get searching job post
 export const getAllPost = (payload, page = 1 ) => {
@@ -45,6 +53,32 @@ export const popularJobPosts = ( key, payload ) => {
             dispatch({
                 type: loading_error,
                 payload: error.message,
+            })
+        }
+    }
+}
+
+
+
+// recent job post
+export const recentJobPost = () => {
+    return async (dispatch) => {
+        try {
+            dispatch({
+                type: jobData,
+            })
+
+            const recentPosted = await axios.get('http://localhost:8080/jobPost');
+
+            dispatch({
+                type: getAllData,
+                payload: recentPosted.data.data
+            })
+            
+        } catch (error) {
+            dispatch({
+                type: jobError,
+                payload: error.message
             })
         }
     }

@@ -7,6 +7,7 @@ import JobCard from '../jobCards/JobCards';
 import arrowLeft from '../../../images/arrow (1).png'
 import arrowRight from '../../../images/arrow (2).png'
 import './Jobs.css'
+import RecentJob from '../../shared/recentJobSidebar/RecentJob';
 
 const Jobs = () => {
     const dispatch = useDispatch();
@@ -63,15 +64,14 @@ const Jobs = () => {
                             }
                         </div>
                                                
-                        <div className="next-previous">
-                            <img src={arrowLeft} alt="" srcset="" onClick={() => paginationMinus()} className="me-2"/>
-                            <img src={arrowRight} alt="" srcset="" onClick={() => paginationPlus()} className="ms-2"/>
+                        <div className="next-previous mt-3">
+                            <img src={arrowLeft} alt=""  onClick={() => paginationMinus()} className="me-2"/>
+                            <img src={arrowRight} alt=""  onClick={() => paginationPlus()} className="ms-2"/>
                         </div>
                    </div>
 
                     <div className="col">
-                        <h4>Popular Jobs</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto quidem recusandae ex sunt sint maxime, iure ea qui doloribus sit aperiam debitis dignissimos est impedit totam quae. Voluptate rem, consectetur explicabo incidunt voluptas ipsa! Totam autem eius quam sequi dolorum molestias voluptas, natus perspiciatis ipsum ad laudantium facere a fugit.</p>
+                        <RecentJob />
                     </div>
                 </div>
             </section>

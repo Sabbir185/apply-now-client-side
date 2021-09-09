@@ -21,6 +21,20 @@
     grid-gap: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-    
+
+
+@media only screen and (max-width: 768px) {
+    .display-control {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .display-control {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        margin-left: 10%;
+    }
 }
