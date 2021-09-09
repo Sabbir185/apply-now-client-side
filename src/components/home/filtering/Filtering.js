@@ -22,8 +22,15 @@ const Filtering = ( ) => {
 
     // popular keyword data request
     const keySubmit = async (key) => {
-        dispatch(popularJobPosts(key));
-        history.push('/jobs');
+        // initial data send
+        const payload = {          
+                 page: "1",
+                 limit: "3"
+        }
+        dispatch(popularJobPosts(key, payload));
+       
+        history.push('/popular-jobs');
+
     } 
 
     return (

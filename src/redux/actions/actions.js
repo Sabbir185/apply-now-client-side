@@ -27,14 +27,14 @@ export const getAllPost = (payload, page = 1 ) => {
 
 
 // get popular job post
-export const popularJobPosts = ( key ) => {
+export const popularJobPosts = ( key, payload ) => {
     return async (dispatch) => {
         try {
             dispatch({
                 type: user_request,
             })
 
-            const postedData = await axios.get(`http://localhost:8080/jobPost/popularPost/${key}`);
+            const postedData = await axios.post(`http://localhost:8080/jobPost/popular/${key}`, payload);
 
             dispatch({
                 type: get_all_job_post,

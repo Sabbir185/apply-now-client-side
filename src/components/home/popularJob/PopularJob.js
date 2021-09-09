@@ -1,17 +1,17 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { getAllPost } from '../../../redux/actions/actions';
+import { popularJobPosts } from '../../../redux/actions/actions';
 import MainNav from '../../shared/mainNav/MainNav';
 import JobCard from '../jobCards/JobCards';
 import arrowLeft from '../../../images/arrow (1).png'
 import arrowRight from '../../../images/arrow (2).png'
-import './Jobs.css'
+import './PopularJob.css'
 
-const Jobs = () => {
+const PopularJob = () => {
     const dispatch = useDispatch();
 
-    let count,totalPostCount;
+    let count,totalPostCount ;
     // data load from redux
     const data = useSelector((state) => {
         count = state.data.postedData.count;
@@ -21,33 +21,33 @@ const Jobs = () => {
 
     // restricted to next page
     const divided = totalPostCount / 3;
-    const totalData = parseInt(divided) === divided ? divided -1 : Math.floor(divided);
+    const totalData = parseInt(divided) === divided ? divided - 1 : Math.floor(divided);
 
-
-    // next page for searching
-    const paginationPlus = () => {
-      if(data.length > 0 && count <= totalData){
-        count += 1;
-        const payload = {
-            title: data[0].title,
-            jobType: data[0].jobType,
+    // next page for popular keyword
+    const paginationMinusKeyword = () => {
+        if(count > 1){
+            count -= 1;
+            const payload = {
+                page: count,
+                limit: 3,
+            }
+    
+            dispatch(popularJobPosts(data[0].title, payload));
         }
-
-        dispatch(getAllPost(payload, count))
-      }
-    }
-    // previous page for searching
-    const paginationMinus = () => {
-      if(count > 1){
-        count -= 1;
-        const payload = {
-            title: data[0].title,
-            jobType: data[0].jobType,
-        }
-        dispatch(getAllPost(payload, count))
-      }
     }
 
+    // previous page for popular keyword
+    const paginationPlusKeyword = () => {
+        if(data.length > 0 && count <= totalData){
+            count += 1;
+            const payload = {
+                page: count,
+                limit: 3,
+            }
+    
+            dispatch(popularJobPosts(data[0].title, payload));
+        }
+    }
 
     return (
         <div>
@@ -64,8 +64,8 @@ const Jobs = () => {
                         </div>
                                                
                         <div className="next-previous">
-                            <img src={arrowLeft} alt="" srcset="" onClick={() => paginationMinus()} className="me-2"/>
-                            <img src={arrowRight} alt="" srcset="" onClick={() => paginationPlus()} className="ms-2"/>
+                            <img src={arrowLeft} alt="" srcset="" onClick={() => paginationMinusKeyword()} className="me-2"/>
+                            <img src={arrowRight} alt="" srcset="" onClick={() => paginationPlusKeyword()} className="ms-2"/>
                         </div>
                    </div>
 
@@ -79,4 +79,4 @@ const Jobs = () => {
     );
 };
 
-export default Jobs;
+export default PopularJob;

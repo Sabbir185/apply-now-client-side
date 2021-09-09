@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from "./components/home/Home";
 import Jobs from "./components/home/jobs/Jobs";
+import PopularJob from "./components/home/popularJob/PopularJob";
 
 function App() {
   return (
@@ -22,6 +23,10 @@ function App() {
 
           <Route path="/jobs">
             <Jobs />
+          </Route>
+
+          <Route path="/popular-jobs">
+            <PopularJob />
           </Route>
 
 
