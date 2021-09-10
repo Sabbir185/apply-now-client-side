@@ -57,7 +57,7 @@ const Jobs = () => {
             {/* data display */}
             <section className="mt-5 job-posts">
                 <div className="row">
-                    <div className="col-sm-12 col-md-8 col-lg-9 col-xlg-9">
+                    <div className="col-sm-12 col-md-8 col-lg-9 col-xlg-9 card-style">
                         <div className='display-control'>
                             {
                                 data?.map((info) => <JobCard key={info._id} data={info} /> )
@@ -70,7 +70,7 @@ const Jobs = () => {
                         </div>
                    </div>
 
-                    <div className="col">
+                    <div className="col ms-2">
                         <RecentJob />
                     </div>
                 </div>

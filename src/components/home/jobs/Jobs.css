@@ -2,7 +2,14 @@
     margin: 0 5%;
 }
 
-/* newxt previous control */
+.card-style {
+    background-color: #e7edee8a; 
+    height: 100vh;
+    border-radius: 10px;
+    padding-top: 10px;
+}
+
+/* newt previous control */
 .next-previous {
    text-align: center;
 }

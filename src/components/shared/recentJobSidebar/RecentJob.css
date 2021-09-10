@@ -1,8 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap');
+
 .recent-title {
     display: block;
     border-bottom: 3px double darkturquoise;
     text-align: center;
     margin: 0 20px;  
+}
+
+.new-job {
+    background-color: #e7edeede; 
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
+    padding-bottom: 10px;
 }
 
 @media only screen and (max-width: 600px) {
@@ -12,4 +22,36 @@
         text-align: center;
         margin: 10% 20%;  
     }
+
+    .new-job {
+        margin-top: 30px;
+    }
 }
+
+
+
+.wrapping > .title {
+    font-size: 16px;
+    font-weight: 500;
+}
+.wrapping > .company {
+    font-style: italic;
+}
+
+.main-recent__img {
+    border-left: 2px solid darkturquoise;
+    margin-left: 8px;
+}
+
+.main-recent{
+    background-color: rgba(255, 255, 255, 0.418);
+    border-radius: 50px;
+    font-family: 'Poppins', sans-serif;
+    transition: all .3s ease-out;
+}
+.main-recent:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+/* 00B5F4 */
