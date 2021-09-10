@@ -5,6 +5,11 @@ import './MainNav.css'
 
 const MainNav = () => {
 
+  // identify sign up
+  // const handleSignUp = (name) => {
+  //   console.log()
+  // }
+
   return (
     <div>
 
@@ -26,8 +31,8 @@ const MainNav = () => {
                       <NavDropdown.Divider />
                       <NavDropdown.Item className="bg-color__dropdown">Career</NavDropdown.Item>
                   </NavDropdown>
-                  <Link to='/' className='nav-link me-3 text-dark'>SignUp</Link>
-                  <Link to='/' className='nav-link me-3 text-dark'>Login</Link>
+                  <Link to='/sign-up' className='nav-link me-3 text-dark'>SignUp</Link>
+                  <Link to='/login' className='nav-link me-3 text-dark'>Login</Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
