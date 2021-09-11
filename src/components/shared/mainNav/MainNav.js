@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory} from "react-router-dom";
 import profile_logo from '../../../images/engineer.png'
 import './MainNav.css'
 import { isToken } from "../../../utils/auth";
@@ -8,6 +8,7 @@ import jwt_decode from "jwt-decode";
 
 const MainNav = () => {
   const history = useHistory()
+
   const toggle = isToken();
   let name = '';
   if(toggle){
@@ -18,7 +19,9 @@ const MainNav = () => {
 
   const handleSignOut = () => {
     localStorage.removeItem('jwt');
-    history.push('/login');
+    history.push('/')
+    window.location.reload();
+    
   }
 
   return (

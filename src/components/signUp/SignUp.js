@@ -89,7 +89,7 @@ const SignUp = () => {
                               data.userInfo.status && 
                                 setTimeout(() => {
                                     history.push('/')
-                                }, 4000)
+                                }, 3000)
                            }
                         </div>
                     }
