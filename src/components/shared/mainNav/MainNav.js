@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import profile_logo from '../../../images/engineer.png'
 import './MainNav.css'
 
 const MainNav = () => {
+  const [toggle, setToggle] = useState(false);
 
-  // identify sign up
-  // const handleSignUp = (name) => {
-  //   console.log()
-  // }
 
   return (
     <div>
@@ -31,8 +29,18 @@ const MainNav = () => {
                       <NavDropdown.Divider />
                       <NavDropdown.Item className="bg-color__dropdown">Career</NavDropdown.Item>
                   </NavDropdown>
-                  <Link to='/sign-up' className='nav-link me-3 text-dark'>SignUp</Link>
-                  <Link to='/login' className='nav-link me-3 text-dark'>Login</Link>
+                 
+                  {
+                    toggle?
+                    <Link to='/' className='nav-link me-3 text-dark'><img src={profile_logo} alt="" className="img-fluid img-fixed"/> </Link>
+                      
+                    :
+                    <div className="d-flex" style={{display: `${toggle?'none':'block'}`}}>
+                        <Link to='/sign-up' className='nav-link me-3 text-dark'>SignUp</Link>
+                        <Link to='/login' className='nav-link me-3 text-dark'>Login</Link>
+                    </div>
+                  }
+                
             </Nav>
           </Navbar.Collapse>
         </Container>

@@ -53,7 +53,7 @@ const Jobs = () => {
     return (
         <div>
             <MainNav />
-            
+       
             {/* data display */}
             <section className="mt-5 job-posts">
                 <div className="row">
@@ -75,6 +75,7 @@ const Jobs = () => {
                     </div>
                 </div>
             </section>
+
         </div>
     );
 };

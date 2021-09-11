@@ -1,7 +1,8 @@
 .sign-up {
-    background-image: url('../../images/sg.png');
+    background-image: url('../../images/sg2.jpg');
     height: 100vh;
     position: relative;
+    background-size: contain;
 }
 
 

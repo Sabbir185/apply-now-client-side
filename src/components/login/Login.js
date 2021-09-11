@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import MainNav from '../shared/mainNav/MainNav';
 import './Login.css'
 
@@ -72,6 +73,9 @@ const Login = () => {
                         </button>
 
                     </form>
+
+                    
+                    <small className="mt-3 d-inline-block">Don't have an account ? please <Link to='/sign-up' className="text-decoration-none">sign up</Link></small>
                 </div>
 
             </section>

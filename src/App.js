@@ -12,45 +12,47 @@ import Login from "./components/login/Login";
 import NoMatch from "./components/shared/noMatchRoute/NoMatch";
 import SignUp from "./components/signUp/SignUp";
 
+
 function App() {
+
   return (
     <Router>
-        <Switch>
+      <Switch>
 
-          <Route exact path="/">
-            <Home />
-          </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
 
-          <Route path="/home">
-            <Home />
-          </Route>
+        <Route path="/home">
+          <Home />
+        </Route>
 
-          <Route path="/jobs">
-            <Jobs />
-          </Route>
+        <Route path="/jobs">
+          <Jobs />
+        </Route>
 
-          <Route path="/popular-jobs">
-            <PopularJob />
-          </Route>
+        <Route path="/popular-jobs">
+          <PopularJob />
+        </Route>
 
-          <Route path="/view-details/:id">
-            <DetailsView />
-          </Route>
+        <Route path="/view-details/:id">
+          <DetailsView />
+        </Route>
 
-          <Route path="/sign-up">
-            <SignUp />
-          </Route>
+        <Route path="/sign-up">
+          <SignUp />
+        </Route>
 
-          <Route path="/login">
-            <Login />
-          </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
 
-    
-          <Route path="*">
-            <NoMatch />
-          </Route>
 
-        </Switch>
+        <Route path="*">
+          <NoMatch />
+        </Route>
+
+      </Switch>
     </Router>
   );
 }

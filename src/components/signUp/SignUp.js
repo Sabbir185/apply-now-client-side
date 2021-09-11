@@ -2,9 +2,18 @@ import React, { useState } from 'react';
 import MainNav from '../shared/mainNav/MainNav';
 import { useForm } from "react-hook-form";
 import './SignUp.css'
+import { Link, useHistory } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { userSignUp } from '../../redux/actions/userActions';
+import { useSelector } from 'react-redux';
+
 
 const SignUp = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const dispatch = useDispatch();
+    const data = useSelector((state) => state.userData);
+
+    const history = useHistory()
     const [toggle, setToggle] = useState(false);
     const [role, setRole] = useState('');
   
@@ -28,9 +37,10 @@ const SignUp = () => {
             email: event.target[2].value,
             password: event.target[3].value,
         }
-        console.log(data)
+        dispatch(userSignUp(data));
     }
 
+    console.log(data)
 
     return (
         <div>
@@ -63,6 +73,26 @@ const SignUp = () => {
                 </div>
 
 
+                <div className="text-center pt-4">
+                    {
+                        data?.error ? 
+                        <div className="text-danger fw-bold mt-4">
+                            <h6>{data.error.response.data.message}</h6>
+                        </div>
+                        :
+                        <div className="text-success fw-bold">
+                            <h6>{data.userInfo.status}</h6>
+                          {
+                              data.userInfo.status && 
+                                setTimeout(() => {
+                                    history.push('/')
+                                }, 4000)
+                           }
+                        </div>
+                    }
+                </div>
+
+
                 {/* sign up form for recruiter */}
                 <div style={{display: `${toggle ? (role ==='recruiter'?'block': 'none') : 'none'}`}} className="form-container">
                     <form onSubmit={handleSubmit(onSubmit)} className="mx-5">
@@ -89,6 +119,8 @@ const SignUp = () => {
                             &nbsp;&nbsp;&nbsp;&nbsp; Sign Up
                         </button>
                     </form>
+
+                    <small className="mt-3 d-inline-block">Already sign up ? please <Link to='/login' className="text-decoration-none">login</Link></small>
                 </div>
 
 
@@ -108,6 +140,8 @@ const SignUp = () => {
                         </button>
 
                     </form>
+
+                    <small className="mt-3 d-inline-block">Already sign up ? please <Link to='/login' className="text-decoration-none">login</Link></small>
                 </div>
 
             </section>
