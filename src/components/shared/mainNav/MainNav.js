@@ -1,16 +1,25 @@
 import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import profile_logo from '../../../images/engineer.png'
 import './MainNav.css'
 import { isToken } from "../../../utils/auth";
+import jwt_decode from "jwt-decode";
 
 const MainNav = () => {
+  const history = useHistory()
   const toggle = isToken();
+  let name = '';
+  if(toggle){
+    const  { username } = jwt_decode(JSON.parse(localStorage.getItem('jwt')));
+    name = username;
+  }
+  
 
-  console.log("token : ", isToken() )
-  console.log("token 2 : ", toggle )
-  // const {} =  JSON.parse(localStorage.getItem('jwt')); 
+  const handleSignOut = () => {
+    localStorage.removeItem('jwt');
+    history.push('/login');
+  }
 
   return (
     <div>
@@ -26,7 +35,7 @@ const MainNav = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
                   <Link to='/home' className='nav-link me-3 text-dark'>Home</Link>
-                  <NavDropdown title="Services" id="basic-nav-dropdown" className="me-3">
+                  <NavDropdown title="Services" id="nav-dropdown-dark-example" className="me-3">
                       <NavDropdown.Item className="bg-color__dropdown">Education</NavDropdown.Item>
                       <NavDropdown.Item className="bg-color__dropdown">Technologies</NavDropdown.Item>
                       <NavDropdown.Item className="bg-color__dropdown">Blogs</NavDropdown.Item>
@@ -36,7 +45,19 @@ const MainNav = () => {
                  
                   {
                     toggle ? (
-                    <Link to='/' className='nav-link me-3 text-dark'><img src={profile_logo} alt="" className="img-fluid img-fixed"/> </Link>
+                      <>
+                        <NavDropdown
+                          id="nav-dropdown-dark-example"
+                          title={ name }
+                          menuVariant="light"
+                        >
+                          <NavDropdown.Item className="bg-color__dropdown">Profile</NavDropdown.Item>
+                          <NavDropdown.Divider />
+                          <NavDropdown.Item className="bg-color__dropdown" onClick={handleSignOut}>Sign Out</NavDropdown.Item>
+                        </NavDropdown>
+
+                        <Link to='/' className='nav-link me-3 text-dark'><img src={profile_logo} alt="" className="img-fluid img-fixed"/> </Link>
+                      </>
                     )
                     :
                     <div className="d-flex" style={{display: `${toggle ? 'none' : 'block' }`}}>
