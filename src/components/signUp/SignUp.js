@@ -6,6 +6,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { userSignUp } from '../../redux/actions/userActions';
 import { useSelector } from 'react-redux';
+import { setToken } from '../../utils/auth';
 
 
 const SignUp = () => {
@@ -42,6 +43,8 @@ const SignUp = () => {
 
     console.log(data)
 
+    data.userInfo && setToken(data.userInfo.token);
+
     return (
         <div>
             <MainNav />
@@ -77,11 +80,11 @@ const SignUp = () => {
                     {
                         data?.error ? 
                         <div className="text-danger fw-bold mt-4">
-                            <h6>{data.error.response.data.message}</h6>
+                            <h6 className="alert alert-danger">{data.error.response.data.message}</h6>
                         </div>
                         :
                         <div className="text-success fw-bold">
-                            <h6>{data.userInfo.status}</h6>
+                         <h6>{data.userInfo.status}</h6>
                           {
                               data.userInfo.status && 
                                 setTimeout(() => {

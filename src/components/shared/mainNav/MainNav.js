@@ -1,12 +1,16 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import profile_logo from '../../../images/engineer.png'
 import './MainNav.css'
+import { isToken } from "../../../utils/auth";
 
 const MainNav = () => {
-  const [toggle, setToggle] = useState(false);
+  const toggle = isToken();
 
+  console.log("token : ", isToken() )
+  console.log("token 2 : ", toggle )
+  // const {} =  JSON.parse(localStorage.getItem('jwt')); 
 
   return (
     <div>
@@ -31,11 +35,11 @@ const MainNav = () => {
                   </NavDropdown>
                  
                   {
-                    toggle?
+                    toggle ? (
                     <Link to='/' className='nav-link me-3 text-dark'><img src={profile_logo} alt="" className="img-fluid img-fixed"/> </Link>
-                      
+                    )
                     :
-                    <div className="d-flex" style={{display: `${toggle?'none':'block'}`}}>
+                    <div className="d-flex" style={{display: `${toggle ? 'none' : 'block' }`}}>
                         <Link to='/sign-up' className='nav-link me-3 text-dark'>SignUp</Link>
                         <Link to='/login' className='nav-link me-3 text-dark'>Login</Link>
                     </div>
