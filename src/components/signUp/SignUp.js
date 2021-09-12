@@ -7,9 +7,13 @@ import { useDispatch } from 'react-redux';
 import { userSignUp } from '../../redux/actions/userActions';
 import { useSelector } from 'react-redux';
 import { setToken } from '../../utils/auth';
+import axios from 'axios'
+import { recruiterSignUpData } from '../../redux/actions/recruiterActions';
 
 
 const SignUp = () => {
+    const [recruiterSignUp, setRecruiterSignUp] = useState({});
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch();
     const data = useSelector((state) => state.userData);
@@ -27,7 +31,17 @@ const SignUp = () => {
     }
 
     // handle recruiter sign up
-    const onSubmit = data => console.log(data);
+    const onSubmit = async info => {
+       try {
+            const res = await axios.post('http://localhost:8080/recruiter/', info);
+            setRecruiterSignUp(res.data);
+            dispatch(recruiterSignUpData(res.data));
+
+       } catch (error) {
+            console.log(error.response.data)
+       }
+        
+    };
 
     // handle user sign up
     const handleUserSignUp = (event) => {
@@ -41,9 +55,17 @@ const SignUp = () => {
         dispatch(userSignUp(data));
     }
 
-    console.log(data)
+    console.log(recruiterSignUp)
 
-    data.userInfo && setToken(data.userInfo.token);
+
+    if(recruiterSignUp.token) {
+        setToken(recruiterSignUp.token);
+        document.title = 'Apply Now - Recruiter';
+
+    }else if(data.userInfo){
+        setToken(data.userInfo.token);
+        document.title = 'Apply Now - User';
+    }
 
     return (
         <div>
@@ -87,6 +109,23 @@ const SignUp = () => {
                          <h6>{data.userInfo.status}</h6>
                           {
                               data.userInfo.status && 
+                                setTimeout(() => {
+                                    history.push('/')
+                                }, 3000)
+                           }
+                        </div>
+                    }
+
+                    {
+                        recruiterSignUp?.message ? 
+                        <div className="text-danger fw-bold mt-4">
+                            <h6 className="alert alert-danger">{recruiterSignUp?.message}</h6>
+                        </div>
+                        :
+                        <div className="text-success fw-bold">
+                         <h6>{recruiterSignUp.status}</h6>
+                          {
+                            recruiterSignUp.status && 
                                 setTimeout(() => {
                                     history.push('/')
                                 }, 3000)

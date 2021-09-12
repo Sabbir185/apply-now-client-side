@@ -1,8 +1,6 @@
 import {
-    user_signUp, 
     post_user_sign_up, 
     user_error, 
-    user_login_request, 
     user_login_error, 
     user_login_data 
 } from '../actions/types';
@@ -14,13 +12,7 @@ const initialUserData = {
 }
 // user sign up data
 export const userSignUpReducer = (state = initialUserData, action) => {
-    switch(action.type){
-        case user_signUp:
-            return{
-                ...state,
-                loading: true
-            }
-            
+    switch(action.type){        
         case post_user_sign_up:
             return{
                 ...state,
@@ -52,11 +44,6 @@ const initialLoginData = {
 
 export const userLoginReducer = (state=initialLoginData, action) => {
     switch(action.type){
-        case user_login_request:
-            return{
-                ...state,
-                loading: true
-            }
         case user_login_data:
             return {
                 ...state,

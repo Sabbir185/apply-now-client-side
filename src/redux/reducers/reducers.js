@@ -1,8 +1,6 @@
 import {
-    user_request, 
     get_all_job_post, 
     loading_error,
-    jobData,
     getAllData,
     jobError
 } from '../actions/types';
@@ -15,12 +13,6 @@ const initialState = {
 
 export const jobPostedReducer = (state = initialState, action) => {
     switch (action.type) {
-        case user_request:
-            return {
-                ...state,
-                loading: true,
-            }
-
         case get_all_job_post:
             return {
                 ...state,
@@ -50,12 +42,6 @@ const initialRecentJob = {
 // recent job
 export const recentJob = (state = initialRecentJob, action) => {
     switch (action.type) {
-        case jobData:
-            return {
-                ...state,
-                loading: true,
-            }
-
         case getAllData:
             return {
                 ...state,

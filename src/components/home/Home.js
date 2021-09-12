@@ -4,9 +4,10 @@ import MainNav from '../shared/mainNav/MainNav';
 import Filtering from './filtering/Filtering';
 
 const Home = () => {
-    let count;
+    let count='';
     const loginData = useSelector((state) => {
         count = Object.keys(state.userLoginData.userLoginData).length;
+        console.log(state.recruiterSignUp.signUpData);
         return state.userLoginData.userLoginData
      })
 

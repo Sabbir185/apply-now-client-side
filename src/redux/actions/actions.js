@@ -1,8 +1,6 @@
 import {
-    user_request, 
     get_all_job_post, 
     loading_error,
-    jobData,
     getAllData,
     jobError
 } from './types';
@@ -13,10 +11,6 @@ import axios from 'axios';
 export const getAllPost = (payload, page = 1 ) => {
     return async (dispatch) => {
         try {
-            dispatch({
-                type: user_request,
-            })
-
             const postedData = await axios.post(`http://localhost:8080/jobPost/jobs?page=${page}&limit=3`, payload);
 
             dispatch({
@@ -38,10 +32,6 @@ export const getAllPost = (payload, page = 1 ) => {
 export const popularJobPosts = ( key, payload ) => {
     return async (dispatch) => {
         try {
-            dispatch({
-                type: user_request,
-            })
-
             const postedData = await axios.post(`http://localhost:8080/jobPost/popular/${key}`, payload);
 
             dispatch({
@@ -64,10 +54,6 @@ export const popularJobPosts = ( key, payload ) => {
 export const recentJobPost = () => {
     return async (dispatch) => {
         try {
-            dispatch({
-                type: jobData,
-            })
-
             const recentPosted = await axios.get('http://localhost:8080/jobPost');
 
             dispatch({
