@@ -9,11 +9,12 @@ _client side code_
 > Technologies
 * ReactJs 
 * Redux 
-* Firebase 
+* React-Redux
+* Bootstrap v5.1
 
 
 > Project live link
 
-> server side code link
+> server side code [link](https://github.com/Sabbir185/apply-now-server-side)
 
 
