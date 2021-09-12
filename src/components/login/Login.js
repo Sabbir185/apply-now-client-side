@@ -1,9 +1,16 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { userLoginAction } from '../../redux/actions/userActions';
 import MainNav from '../shared/mainNav/MainNav';
+import { useHistory } from "react-router-dom";
 import './Login.css'
 
+
 const Login = () => {
+    const history = useHistory();
+    const dispatch = useDispatch();
+
     const [toggle, setToggle] = useState(false);
     const [role, setRole] = useState('');
 
@@ -22,10 +29,13 @@ const Login = () => {
             password: event.target[1].value,
         }
         if(role === 'user') {
-            console.log('for user :', data)
+            dispatch(userLoginAction(data));
+            document.title = `Apply Now - User`;
+            history.push('/');
 
         }else if(role === 'recruiter') {
-            console.log('for recruiter :', data)
+            console.log('for recruiter :', data);
+            document.title = `Apply Now - Recruiter`;
         }
     }
 

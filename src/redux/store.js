@@ -1,6 +1,6 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { jobPostedReducer, recentJob } from "./reducers/reducers";
-import {userInfoReducer} from './reducers/userReducers'
+import {userSignUpReducer, userLoginReducer} from './reducers/userReducers'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
@@ -11,7 +11,8 @@ const middlewares = applyMiddleware(thunk)
 const combineReducer = combineReducers({
     data: jobPostedReducer,
     recentJob: recentJob,
-    userData: userInfoReducer,
+    userData: userSignUpReducer,
+    userLoginData: userLoginReducer
 })
 
 export const store = createStore(combineReducer, composeWithDevTools(middlewares));
