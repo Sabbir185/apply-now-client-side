@@ -3,7 +3,7 @@ import { jobPostedReducer, recentJob } from "./reducers/reducers";
 import {userSignUpReducer, userLoginReducer} from './reducers/userReducers'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension';
-import { recruiterSignUpReducer } from "./reducers/recruiterReducers";
+import { recruiterLoginReducer, recruiterSignUpReducer } from "./reducers/recruiterReducers";
 
 // multi middleware able to add by comma for ex: thunk, logger
 const middlewares = applyMiddleware(thunk) 
@@ -14,7 +14,8 @@ const combineReducer = combineReducers({
     recentJob: recentJob,
     userData: userSignUpReducer,
     userLoginData: userLoginReducer,
-    recruiterSignUp: recruiterSignUpReducer
+    recruiterSignUp: recruiterSignUpReducer,
+    recruiterLoginData: recruiterLoginReducer
 })
 
 export const store = createStore(combineReducer, composeWithDevTools(middlewares));

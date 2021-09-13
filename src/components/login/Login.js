@@ -5,6 +5,7 @@ import { userLoginAction } from '../../redux/actions/userActions';
 import MainNav from '../shared/mainNav/MainNav';
 import { useHistory } from "react-router-dom";
 import './Login.css'
+import { recruiterLoginAction } from '../../redux/actions/recruiterActions';
 
 
 const Login = () => {
@@ -34,8 +35,9 @@ const Login = () => {
             history.push('/');
 
         }else if(role === 'recruiter') {
-            console.log('for recruiter :', data);
+            dispatch(recruiterLoginAction(data));
             document.title = `Apply Now - Recruiter`;
+            history.push('/');
         }
     }
 

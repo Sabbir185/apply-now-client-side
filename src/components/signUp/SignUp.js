@@ -55,14 +55,11 @@ const SignUp = () => {
         dispatch(userSignUp(data));
     }
 
-    console.log(recruiterSignUp)
-
-
     if(recruiterSignUp.token) {
         setToken(recruiterSignUp.token);
         document.title = 'Apply Now - Recruiter';
 
-    }else if(data.userInfo){
+    }else if(Object.keys(data.userInfo).length > 0){
         setToken(data.userInfo.token);
         document.title = 'Apply Now - User';
     }

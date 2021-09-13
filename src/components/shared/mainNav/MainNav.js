@@ -2,27 +2,33 @@ import React from "react";
 import { Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { Link, useHistory} from "react-router-dom";
 import profile_logo from '../../../images/engineer.png'
+import logo from '../../../images/logo.png'
 import './MainNav.css'
 import { isToken } from "../../../utils/auth";
 import jwt_decode from "jwt-decode";
 
 const MainNav = () => {
   const history = useHistory()
-
   const toggle = isToken();
+  
   let name = '';
+
   if(toggle){
-    const  { username } = jwt_decode(JSON.parse(localStorage.getItem('jwt')));
+    let  { username } = jwt_decode(JSON.parse(localStorage.getItem('jwt')));
     name = username;
   }
   
-
   const handleSignOut = () => {
     localStorage.removeItem('jwt');
     history.push('/')
     window.location.reload();
     
   }
+
+  const handleProfile = () => {
+    history.push('/profile')
+  }
+
 
   return (
     <div>
@@ -31,7 +37,8 @@ const MainNav = () => {
         <Container>
           <Navbar.Brand>
             <Link to='/' className='nav-link me-3 text-dark'>
-              <span className="text-dark">ApplyNow</span>
+              {/* <span className="text-dark">ApplyNow</span> */}
+              <img src={logo} alt="" className="img-fluid logo"/>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -54,7 +61,7 @@ const MainNav = () => {
                           title={ name }
                           menuVariant="light"
                         >
-                          <NavDropdown.Item className="bg-color__dropdown">Profile</NavDropdown.Item>
+                          <NavDropdown.Item className="bg-color__dropdown" onClick={handleProfile}>Profile</NavDropdown.Item>
                           <NavDropdown.Divider />
                           <NavDropdown.Item className="bg-color__dropdown" onClick={handleSignOut}>Sign Out</NavDropdown.Item>
                         </NavDropdown>

@@ -9,6 +9,7 @@ import Home from "./components/home/Home";
 import Jobs from "./components/home/jobs/Jobs";
 import PopularJob from "./components/home/popularJob/PopularJob";
 import Login from "./components/login/Login";
+import Profile from "./components/profile/Profile";
 import NoMatch from "./components/shared/noMatchRoute/NoMatch";
 import SignUp from "./components/signUp/SignUp";
 
@@ -45,6 +46,10 @@ function App() {
 
         <Route path="/login">
           <Login />
+        </Route>
+
+        <Route exact path="/profile">
+          <Profile />
         </Route>
 
 
