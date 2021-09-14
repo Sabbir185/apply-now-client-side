@@ -28,3 +28,12 @@ export const recruiterLoginAction = ( payload ) => {
         }
     }
 }
+
+
+// recruiter's all data
+export const recruiterDataAction = (payload) => {
+    return {
+        type: "recruiter_data",
+        payload
+    }
+}

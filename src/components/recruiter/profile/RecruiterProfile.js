@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import profileImg from '../../../images/profileImageLogo.png';
+import { recruiterDataAction } from '../../../redux/actions/recruiterActions';
 import ProfileSide from '../profileSide/ProfileSide';
 import './RecruiterProfile.css';
 
@@ -13,15 +15,17 @@ const capitalWord = (word='') => {
 const RecruiterProfile = (props) => {
     const id = props.recruiter;
     const [recruiterData, setRecruiterData] = useState({});
+    const dispatch = useDispatch();
 
     useEffect(() => {
         fetch(`http://localhost:8080/recruiter/${id}`)
         .then(res => res.json())
         .then(data => {
-            setRecruiterData(data.user[0])
+            setRecruiterData(data.user[0]);
         })
     },[id])
 
+    dispatch(recruiterDataAction(recruiterData))
     const { role, name, email, company, country, createdAt} = recruiterData;
 
 

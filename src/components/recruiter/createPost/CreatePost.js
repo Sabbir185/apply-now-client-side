@@ -1,9 +1,11 @@
 import axios from 'axios';
 import React from 'react';
 import { useForm } from "react-hook-form";
+import { useHistory } from 'react-router';
 
 const CreatePost = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const history = useHistory()
 
     const token = JSON.parse(localStorage.getItem('jwt'));
 
@@ -12,7 +14,8 @@ const CreatePost = () => {
             const res = await axios.post('http://localhost:8080/jobPost', data, {
                                         headers: {'Authorization': `Bearer ${token}`} });
             if(res.data) {
-                alert(res.data.status)
+                alert(res.data.status);
+                history.push('/');
             }
 
         } catch (error) {
@@ -26,9 +29,8 @@ const CreatePost = () => {
             <input {...register("title", { required: true })} className="form-control" placeholder="Job title"/>
             {errors.title && <span>title needs at lest 6 characters</span>}
 
-            <textarea {...register("description", { required: true, minLength: 20})} cols="30" rows="7" className="form-control mt-3" placeholder="Job description at least 20 characters"></textarea>
+            <textarea {...register("description", { required: true, minLength: 20})} cols="30" rows="7" className="form-control mt-3" placeholder="Job description at least 20 characters "></textarea>
             {errors.description && <span>At lest 20 characters</span>}
-            
 
             <input {...register("salary", { required: true })} className="form-control mt-3" placeholder="Salary range"/>
             {errors.salary && <span>This field is required</span>}

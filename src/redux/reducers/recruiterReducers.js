@@ -47,3 +47,25 @@ export const recruiterLoginReducer = (state=initialLoginData, action) => {
             return state;
     }
 }
+
+
+
+// recruiter's all data reducer
+const initialData = {
+    loading: true,
+    data: {}
+}
+
+export const recruiterDataReducer = (state=initialData, action) => {
+    switch(action.type) {
+        case "recruiter_data":
+            return {
+                ...state,
+                loading: false,
+                data: action.payload
+            }
+
+        default:
+            return state;
+    }
+}
