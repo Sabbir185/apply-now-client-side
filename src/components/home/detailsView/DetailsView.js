@@ -51,7 +51,7 @@ const DetailsView = () => {
                     <small>published date: {date.toDateString()}</small>
                     <hr />
                     <h6>Job Descriptions</h6>
-                    <pre><h6 className="mt-2">{description}</h6></pre> 
+                    <p className="mt-2">{description}</p> 
                     <hr />
                     <h6>Job Type : {capitalWord(jobType)}</h6>
                     <h6>Company : {company}</h6>
