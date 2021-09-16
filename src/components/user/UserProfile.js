@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Table } from 'react-bootstrap';
 import profileImg from '../../images/avat.png'
+import TotalApply from './TotalApply';
 import './UserProfile.css';
 
 
@@ -17,7 +19,6 @@ const UserProfile = (props) => {
 
     const {role, name, email, createdAt} = userData;
 
-    
     return (
         <div>
             <div className="row mt-5">
@@ -33,7 +34,24 @@ const UserProfile = (props) => {
                     </div>
                 </div>
                 <div className="col">
-
+                    <Table striped bordered hover size="sm">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Company</th>
+                                <th>Country</th>
+                                <th>Applied</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            
+                            {
+                                userData.applications?.map(apply => <TotalApply key={apply._id} data={apply} />)
+                            }
+                            
+                        </tbody>
+                    </Table>
                 </div>
             </div>
         </div>

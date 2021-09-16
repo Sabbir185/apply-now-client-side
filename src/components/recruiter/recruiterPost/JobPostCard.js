@@ -1,10 +1,13 @@
 import axios from 'axios';
 import React from 'react';
 import { useHistory } from 'react-router';
+import { useDispatch } from 'react-redux';
+import { recentJobPost } from '../../../redux/actions/actions';
 import './RecruiterPost.css'
 
 const JobPostCard = (props) => {
     const {title, jobType, _id} = (props.data)
+    const dispatch = useDispatch();
     const history = useHistory()
     const token = JSON.parse(localStorage.getItem('jwt'));
 
@@ -21,6 +24,7 @@ const JobPostCard = (props) => {
     }
 
     const passIdHandler = (id) => {
+        dispatch(recentJobPost());
         history.push(`/view-details/${id}`);
     }
 
