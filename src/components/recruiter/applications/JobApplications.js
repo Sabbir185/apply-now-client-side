@@ -34,8 +34,8 @@ const JobApplications = () => {
                     <thead>
                         <tr>
                             <th>Position Name</th>
-                            <th>Applicant Name</th>
-                            <th>Applicant Email</th>
+                            <th>Applicant Resume</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
