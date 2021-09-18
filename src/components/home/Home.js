@@ -35,8 +35,9 @@ const Home = () => {
         <div>
             <MainNav />
             <Filtering />
-            <HowItWorks />
             <Testimonial />
+            <HowItWorks />
+            
         </div>
     );
 };

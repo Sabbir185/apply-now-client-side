@@ -1,6 +1,6 @@
 .testimonial-4 {
     margin-top: 10%;
-    background-color: rgba(177, 176, 176, 0.397);
+    background-color: rgba(177, 176, 176, 0.336);
 }
 
 .testimonial-4__title {
@@ -66,4 +66,16 @@
         margin-top: 8%; 
     }
 
+}
+
+.post-hired {
+    font-size: 18px;
+    font-weight: 700;
+    color: rgba(62, 160, 241, 0.884);
+}
+
+.number {
+    font-size: 18px;
+    font-weight: 700;
+    color: #00CDA0;
 }
