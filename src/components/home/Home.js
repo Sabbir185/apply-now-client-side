@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import MainNav from '../shared/mainNav/MainNav';
 import Filtering from './filtering/Filtering';
 import HowItWorks from './howItWorks/HowItWorks';
+import Testimonial from './testimonial/Testimonial';
 
 const Home = () => {
     let userLogin=0;
@@ -35,6 +36,7 @@ const Home = () => {
             <MainNav />
             <Filtering />
             <HowItWorks />
+            <Testimonial />
         </div>
     );
 };

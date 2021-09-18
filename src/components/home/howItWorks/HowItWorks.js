@@ -11,8 +11,8 @@ import './HowItWorks.css'
 
 const HowItWorks = () => {
     return (
-        <section className="section-3">
-            <h1 className='section-3__title pb-5'>HOW IT WORKS ?</h1>
+        <section className="section-3 pb-3">
+            <h1 className='section-3__title pb-3 pt-4'>HOW IT WORKS ?</h1>
 
             <div>
                 <VerticalTimeline>
