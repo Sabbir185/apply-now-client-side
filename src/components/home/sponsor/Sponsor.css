@@ -1,0 +1,41 @@
+.sponsor {
+    margin-top: 10%;
+    background-color: rgba(177, 176, 176, 0.336);
+    
+}
+
+.sponsor-title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: rgba(161, 33, 10, 0.616);
+    margin-bottom: 30px;
+}
+
+.brand-logo {
+    width: 70px !important;
+}
+
+.sponsor-container {
+    margin-left: 18%;
+    margin-top: 50px;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .sponsor-container {
+        margin-left: 16%;
+    }
+    .sponsor {
+        margin-top: 15%;
+    }
+  }
+@media only screen and (max-width: 576px) {
+    .sponsor-container {
+        margin-left: 13%;
+    }
+    .sponsor {
+        margin-top: 15%;
+    }
+    
+}

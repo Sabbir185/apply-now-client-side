@@ -4,6 +4,7 @@ import MainNav from '../shared/mainNav/MainNav';
 import Filtering from './filtering/Filtering';
 import HowItWorks from './howItWorks/HowItWorks';
 import Testimonial from './testimonial/Testimonial';
+import Welfare from './sponsor/Sponsor';
 
 const Home = () => {
     let userLogin=0;
@@ -37,7 +38,7 @@ const Home = () => {
             <Filtering />
             <Testimonial />
             <HowItWorks />
-            
+            <Welfare />
         </div>
     );
 };
