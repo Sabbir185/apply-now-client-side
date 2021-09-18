@@ -20,9 +20,8 @@ const MainNav = () => {
   
   const handleSignOut = () => {
     localStorage.removeItem('jwt');
-    history.push('/')
+    history.push('/');
     window.location.reload();
-    
   }
 
   const handleProfile = () => {

@@ -9,3 +9,18 @@
 .profile-info__container {
     text-align: center;
 }
+
+.profile-info__container > h6 {
+    background-color: #e8ebeed0;
+    margin-left: 10%;
+    margin-right: 10%;
+    height: 30px;
+    padding-top: 4px;
+    border-left: 2px groove cyan;
+    margin-bottom: 13px;
+    transform: skew(-10deg);
+    transition: all 0.2s;
+}
+.profile-info__container > h6:hover {
+    transform: translateY(-2px);
+}

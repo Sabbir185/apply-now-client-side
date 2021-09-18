@@ -80,7 +80,7 @@ const DetailsView = () => {
                         <h6>Country : {country.length<=3 ? country.toUpperCase() : capitalWord(country)}</h6>
 
                         <form onSubmit={handleApply}>
-                            <div className="row mt-3">
+                            <div className="row mt-3 d-flex align-items-center">
                                 <div className="col-sm-3 col-md-3 col-lg-3 col-xlg-3 fw-bold">
                                     <label htmlFor="cv">Resume link : </label>
                                 </div>

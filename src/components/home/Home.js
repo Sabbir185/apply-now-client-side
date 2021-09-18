@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import MainNav from '../shared/mainNav/MainNav';
 import Filtering from './filtering/Filtering';
+import HowItWorks from './howItWorks/HowItWorks';
 
 const Home = () => {
     let userLogin=0;
@@ -31,8 +32,9 @@ const Home = () => {
     
     return (
         <div>
-            <MainNav/>
-            <Filtering/>
+            <MainNav />
+            <Filtering />
+            <HowItWorks />
         </div>
     );
 };

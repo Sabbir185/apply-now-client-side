@@ -1,0 +1,21 @@
+.section-3 {
+    background-color: #00CDA0;
+    margin-top: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+.section-3__title {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.section-3__cardDescription {
+    color: rgba(0, 0, 0, 0.699);
+    text-align: justify;
+}
+
+.vertical-timeline-element-content {
+    box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.25), 0 0.4em 1.25em 0 rgba(0, 0, 0, 0.15) !important;
+  }
