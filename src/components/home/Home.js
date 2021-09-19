@@ -5,6 +5,7 @@ import Filtering from './filtering/Filtering';
 import HowItWorks from './howItWorks/HowItWorks';
 import Testimonial from './testimonial/Testimonial';
 import Welfare from './sponsor/Sponsor';
+import Footer from '../shared/footer/Footer';
 
 const Home = () => {
     let userLogin=0;
@@ -39,6 +40,7 @@ const Home = () => {
             <Testimonial />
             <HowItWorks />
             <Welfare />
+            <Footer />
         </div>
     );
 };

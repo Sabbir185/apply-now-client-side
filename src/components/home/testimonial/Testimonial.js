@@ -1,6 +1,8 @@
 import React from 'react';
 import img1 from '../../../images/avat.png'
 import img2 from '../../../images/womanAvater.png'
+import img3 from '../../../images/add-user.png'
+import img4 from '../../../images/jobPost.png'
 import Ticker from '../../../utils/Ticker';
 import Fade from 'react-reveal/Fade';
 import './Testimonial.css'
@@ -49,18 +51,24 @@ const Testimonial = () => {
             </section>
             </Fade>
 
-            <section className="container d-flex justify-content-center mt-5">             
-                <h4 className="me-4">
-                    <span className="post-hired">Total Job Posted :</span> <span className="number">
-                         <Ticker  className="count" end={13921}/>
-                    </span>
-                </h4>    
+            <section className="container row d-flex align-items-center  mt-5">             
+                <div className="col d-flex justify-content-end">   
+                    <img src={img4} alt="" className="img-fluid h-75 d-inline-block"/>
+                    <h4 className="ms-2">
+                        <span className="post-hired d-block">Total Job Posted</span> <span className="number">
+                        <Ticker  className="count" end={13921}/>
+                        </span>
+                    </h4> 
+                </div>    
 
-                <h4 className="ms-4"> 
-                    <span className="post-hired">Successfully hired :</span> <span className="number">
-                        <Ticker  className="count" end={11576}/>
-                    </span> 
-                </h4>         
+                <div className="col d-flex justify-content-center"> 
+                    <img src={img3} alt="" className="img-fluid h-50 d-inline-block" />                    
+                    <h4 className="ms-2"> 
+                        <span className="post-hired d-block">Successfully hired</span> <span className="number">
+                            <Ticker  className="count" end={11576}/>
+                        </span> 
+                    </h4>
+                </div>         
             </section>
 
         </section>
