@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <footer className="footer">
             <section className="row">
-                <div className="col">
+                <div className="col-xs-12 col-sm-6 col-lg-3 col-xlg-3">
                     <h5 className="text-dark mb-3">ADDRESS</h5>
                     <address>
                         KDA, avenue <br />
@@ -19,21 +19,21 @@ const Footer = () => {
                     </address>
                 </div>
 
-                <div className="col">
+                <div className="col-xs-12 col-sm-6 col-lg-3 col-xlg-3">
                     <h5 className="text-dark mb-3">Useful links</h5>
                     <a href="https://www.coursera.org/" target="_blank" rel="noreferrer" className="text-decoration-none footer-color"> <span>Coursera Inc.</span></a>  <br />
                     <a href="https://www.udemy.com/" target="_blank" rel="noreferrer" className="text-decoration-none footer-color"> <span>Udemy Academy</span> </a> <br />
                     <a href="https://www.rokomari.com/" target="_blank" rel="noreferrer" className="text-decoration-none footer-color"> <span>Rokomari for books</span> </a>                                                     
                 </div>
 
-                <div className="col">
+                <div className="col-xs-12 col-sm-6 col-lg-3 col-xlg-3">
                     <h5 className="text-dark mb-3">Apply-Now</h5>
                     <Link to="/" className="text-decoration-none footer-color"><span>About</span></Link> <br />
                     <Link to="/" className="text-decoration-none footer-color"><span>Blogs</span></Link> <br />
                     <Link to="/" className="text-decoration-none footer-color"><span>Career</span></Link>                
                 </div>
 
-                <div className="col">
+                <div className="col-xs-12 col-sm-6 col-lg-3 col-xlg-3">
                     <h5 className="text-dark mb-3">Contact Us</h5>
                     <a href="https://www.facebook.com/sabbir185/" target="_blank" rel="noreferrer"> <img src={facebook} alt="" className="img-fluid social-logo"/> </a>
                     <a href="https://github.com/Sabbir185" target="_blank" rel="noreferrer"> <img src={github} alt="" className="img-fluid social-logo"/> </a>
