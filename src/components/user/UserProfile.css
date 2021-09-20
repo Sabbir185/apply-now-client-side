@@ -1,0 +1,11 @@
+@media only screen and (max-width: 576px){
+    body{
+        overflow-x: scroll;
+    }
+    .user-table, Table{
+        overflow-x: scroll;
+    }
+    .user-table{
+        margin-top: 50px;
+    }
+}
