@@ -9,3 +9,17 @@
         margin-top: 50px;
     }
 }
+
+.closeModal {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-weight: 700;
+    border-radius: 50%;
+    transition: all .2s;
+}
+.closeModal:hover {
+    position: fixed;
+    transform: scale(1.1);
+    cursor: pointer;
+}

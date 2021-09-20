@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import profileImg from '../../../images/profileImageLogo.png';
 import { recruiterDataAction } from '../../../redux/actions/recruiterActions';
 import ProfileSide from '../profileSide/ProfileSide';
+import RecruiterModal from './RecruiterModal';
 import './RecruiterProfile.css';
 
 // name capitalize fixed
@@ -26,16 +27,36 @@ const RecruiterProfile = (props) => {
     },[id])
 
     dispatch(recruiterDataAction(recruiterData))
-    const { role, name, email, company, country, createdAt} = recruiterData;
+    const { role, name, email, company, country, createdAt, _id, image} = recruiterData;
 
+
+    // for modal
+    const [modalIsOpen, setIsOpen] = useState(false);
+
+    function openModal() {
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
 
     return (
         <div>
             <div className="row mt-5">
                 <div className="col-sm-12 col-md-4 col-lg-4 col-xlg-4 profile-info bg-light">
-                    <img src={profileImg} alt="" className="img-fluid profile-img mt-3"/>
-                    <button type="submit" className="btn search-button text-center d-block mx-auto mt-4"> &nbsp;&nbsp;&nbsp;&nbsp; Update Profile</button>
+                    {
+                        image? 
+                        <img src={`http://localhost:8080/${image}`} alt="" className="img-fluid profile-img border-2 border-success"/>
+                        :
+                        <img src={profileImg} alt="" className="img-fluid profile-img border-0"/>
+                    }
+
+                    <button type="submit" className="btn search-button text-center d-block mx-auto mt-4"  onClick={openModal}> &nbsp;&nbsp;&nbsp;&nbsp; Update Profile</button>
                     <hr />
+
+                    <RecruiterModal modalIsOpen={modalIsOpen} closeModal={closeModal} id={_id}/>
+
                     <div className='profile-info__container mt-5'>
                         <h6 className="text-success">Role : {capitalWord(role)}</h6>
                         <h6 className="text-primary">Name : {name}</h6>

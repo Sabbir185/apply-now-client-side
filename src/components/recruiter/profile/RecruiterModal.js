@@ -3,8 +3,8 @@ import Modal from 'react-modal';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import cancel from '../../images/cancel.png'
-import './UserProfile.css'
+import cancel from '../../../images/cancel.png'
+import './RecruiterProfile.css';
 
 const customStyles = {
     content: {
@@ -20,7 +20,7 @@ const customStyles = {
   
 Modal.setAppElement('#root');
 
-const UserModal = ({modalIsOpen, closeModal, id}) => {
+const RecruiterModal = ({modalIsOpen, closeModal, id}) => {
     const [imageData, setImageData] = React.useState(null)
 
     const handleImage = (e) => {
@@ -37,7 +37,7 @@ const UserModal = ({modalIsOpen, closeModal, id}) => {
             const config = {
                 Headers: {'content-type': 'multipart/from-data'}
             }
-            const res = await axios.patch(`http://localhost:8080/user/update/${id}`, formData, config);
+            const res = await axios.patch(`http://localhost:8080/recruiter/update/${id}`, formData, config);
 
             if(res.data) {
                 toast.success('Profile updated successFully!');
@@ -52,6 +52,7 @@ const UserModal = ({modalIsOpen, closeModal, id}) => {
         }
         
     }
+
 
     return (
         <div>
@@ -76,4 +77,4 @@ const UserModal = ({modalIsOpen, closeModal, id}) => {
     );
 };
 
-export default UserModal;
+export default RecruiterModal;
