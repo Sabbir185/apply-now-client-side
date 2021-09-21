@@ -6,9 +6,10 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import CreatePost from '../createPost/CreatePost';
-import RecruiterPost from '../recruiterPost/RecruiterPost';
-import JobApplications from '../applications/JobApplications';
+import PostPermission from '../postPermission/PostPermission';
+import AllUser from '../allUser/AllUser';
+import AllRecruiter from '../allRecruiter/AllRecruiter'
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -51,14 +52,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-const ProfileSide = () => {
-  const classes = useStyles();
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+const InfoContainer = () => {
+    const classes = useStyles();
+    const [value, setValue] = React.useState(0);
+  
+    const handleChange = (event, newValue) => {
+      setValue(newValue);
+    };
 
     return (
         <div className={classes.root} >
@@ -70,22 +70,29 @@ const ProfileSide = () => {
                     textColor="primary"
                     centered
                     >
-                        <Tab label="Create Post" {...a11yProps(0)} />
-                        <Tab label="Total Job Post" {...a11yProps(1)} />
-                        <Tab label="Applications" {...a11yProps(2)} />
+                        <Tab label="Post Permission" {...a11yProps(0)} />
+                        <Tab label="All User" {...a11yProps(1)} />
+                        <Tab label="All Recruiter" {...a11yProps(2)} />
+                        <Tab label="Add New Admin" {...a11yProps(3)} />
+                
                 </Tabs>
             </AppBar>
-            <TabPanel value={value} index={0} className="bg-light">
-                <CreatePost />
+            {/* className="bg-light" */}
+            <TabPanel value={value} index={0}>
+                <PostPermission />
             </TabPanel>
-            <TabPanel value={value} index={1} className="bg-light" >
-                <RecruiterPost />
+            <TabPanel value={value} index={1}>
+                <AllUser />
             </TabPanel>
-            <TabPanel value={value} index={2} className="bg-light">
-                <JobApplications />
+            <TabPanel value={value} index={2}>
+                <AllRecruiter />
             </TabPanel>
+            <TabPanel value={value} index={3}>
+                <h2>add admin</h2>
+            </TabPanel>
+      
         </div>
     );
 };
 
-export default ProfileSide;
+export default InfoContainer;

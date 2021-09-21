@@ -1,31 +1,41 @@
-.admin-title {
-    text-align: center;
-    font-size: 25px;
-    margin-top: 10%;
-    color: lightseagreen;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
-.admin-form__container {
-    width: 60%;
-    margin: auto;
-    margin-top: 30px;
-    border: 1px solid lightgray;
-    padding: 20px;
-    box-shadow: 0 0.25em 0.5em 0 rgba(0, 0, 0, 0.2), 0 0.4em 1.25em 0 rgba(0, 0, 0, 0.1);
-    background-image: linear-gradient(12deg, #C8F5FC , #0A9CE5) ;
-    border-radius: 5px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.admin-img {
+    width: 150px;
+    border: 1px solid cyan;
+    border-radius: 50%;
+    display: block;
+    margin-left: auto;
 }
 
-.admin-support {
-    width: 500px;
+.admin-info {
+    border-left: 1px solid rgba(0, 139, 139, 0.616);
+}
+
+.admin-dashBoard {
+    background-image: url('../../../images/sgu.jpg');
+    padding: 3%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Poppins', sans-serif;
+}
+
+.textColor1 {
+    color: purple;
+}
+.textColor2 {
+    color: #2C3E50;
+}
+
+.home-button {
     position: absolute;
-    top: 15%;
-    left: 10%;
-    z-index: -1;
+    top: 3%;
+    left: 3%;
 }
-
-@media only screen and (min-width: 769px){
-    .admin-form__container {
-        width: 400px;
-    }
+.backImgBtn {
+    width: 40px;
+    transition: all .2s;
+}
+.backImgBtn:hover {
+    transform: scale(1.1);
 }

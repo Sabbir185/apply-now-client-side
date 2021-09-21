@@ -5,6 +5,7 @@ import {
   Route,
 } from "react-router-dom";
 import AdminDashBoard from "./components/admin/adminDashBoard/AdminDashBoard";
+import AdminLogin from "./components/admin/adminLogin/AdminLogin";
 import DetailsView from "./components/home/detailsView/DetailsView";
 import Home from "./components/home/Home";
 import Jobs from "./components/home/jobs/Jobs";
@@ -54,6 +55,10 @@ function App() {
         </Route>
 
         <Route path="/admin">
+          <AdminLogin />
+        </Route>
+
+        <Route path="/admin-dashboard">
           <AdminDashBoard />
         </Route>
 

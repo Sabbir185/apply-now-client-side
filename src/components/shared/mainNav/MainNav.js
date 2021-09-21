@@ -12,10 +12,12 @@ const MainNav = () => {
   const toggle = isToken();
   
   let name = '';
+  let admin = '';
 
   if(toggle){
-    let  { username } = jwt_decode(JSON.parse(localStorage.getItem('jwt')));
+    let  { username, role } = jwt_decode(JSON.parse(localStorage.getItem('jwt')));
     name = username;
+    admin = role;
   }
   
   const handleSignOut = () => {
@@ -26,6 +28,9 @@ const MainNav = () => {
 
   const handleProfile = () => {
     history.push('/profile')
+  }
+  const handleAdmin = () => {
+    history.push('/admin-dashboard');
   }
 
 
@@ -60,7 +65,11 @@ const MainNav = () => {
                           title={ name }
                           menuVariant="light"
                         >
-                          <NavDropdown.Item className="bg-color__dropdown" onClick={handleProfile}>Profile</NavDropdown.Item>
+                          {admin === 'admin'?
+                            <NavDropdown.Item className="bg-color__dropdown" onClick={handleAdmin}>Admin</NavDropdown.Item>
+                            :
+                            <NavDropdown.Item className="bg-color__dropdown" onClick={handleProfile}>Profile</NavDropdown.Item>
+                          }
                           <NavDropdown.Divider />
                           <NavDropdown.Item className="bg-color__dropdown" onClick={handleSignOut}>Sign Out</NavDropdown.Item>
                         </NavDropdown>

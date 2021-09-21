@@ -1,43 +1,46 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
-import support from '../../../images/Support.png'
-import Fade from 'react-reveal/Fade';
-import './AdminDashBoard.css'
+import './AdminDashBoard.css';
+import defaultImage from '../../../images/profileImageLogo.png'
+import jwt_decode from 'jwt-decode'
+import InfoContainer from '../infoContainer/InfoContainer';
+import { isToken } from '../../../utils/auth';
+import { Link, useHistory } from 'react-router-dom';
+import back from '../../../images/back.png'
 
 const AdminDashBoard = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const history = useHistory();
+    const {
+        username, name, email, role
+    } = jwt_decode(JSON.parse(localStorage.getItem('jwt')));
+
+    if(isToken() === false) {
+        history.push('/admin')
+    }
+
 
     return (
-        <section className="admin">
-            
-            <div className="row">
+        <section>
+            <Link to='/' className="home-button">
+                <img src={back} alt="" className="backImgBtn"/>
+            </Link>
+            <section className="row d-flex align-items-center justify-content-center admin-dashBoard">
                 <div className="col">
-                    <Fade left>
-                        <img src={support} alt="" className="img-fluid admin-support"/>
-                    </Fade>      
+                    <img src={defaultImage} alt="" className="img-fluid admin-img"/>
                 </div>
-                <div className="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xlg-6">
-                    <Fade right>
-                    <h1 className="admin-title">Admin Dashboard</h1>
-                    <div className="admin-form__container">
-                    <form  onSubmit={handleSubmit(onSubmit)}>
-                        <input {...register("username", { required: true })} placeholder="Username" className="form-control"/>
-                        {errors.username && <span className="text-danger fst-italic">This field is required</span>}
-                        
-                        <input type="password" {...register("password", { required: true })} placeholder="Password" className="form-control mt-3"/>
-                        {errors.password && <span className="text-danger fst-italic">This field is required</span>}
-                        
-                        <button type="submit" className="btn btn-primary bg-success search-button text-center mt-4 d-block mx-auto"> 
-                            &nbsp;&nbsp;&nbsp;&nbsp; Login
-                        </button>
-                        <small className="d-block text-center fst-italic mt-3">If you are not an admin, go <Link to="/" className=" text-success fw-bold">Home</Link> </small>
-                    </form>
-                    </div>
-                    </Fade> 
-                </div>                 
-            </div>
+                <div className="col admin-info">
+                    <h5 className="text-capitalize textColor1 fw-bold">Welcome : {role}</h5>
+                    <p className="textColor2 fw-bold">{username}</p>
+                    <p className="textColor1 fw-bold">{name}</p>
+                    <p className="textColor2 fw-bold">{email}</p>
+                    <p></p>
+                </div>
+            </section>
+
+            <section>
+                <InfoContainer />
+            </section>
+            
+
 
         </section>
     );
