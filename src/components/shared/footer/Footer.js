@@ -30,7 +30,7 @@ const Footer = () => {
                     <h5 className="text-dark mb-3">Apply-Now</h5>
                     <Link to="/" className="text-decoration-none footer-color"><span>About</span></Link> <br />
                     <Link to="/" className="text-decoration-none footer-color"><span>Blogs</span></Link> <br />
-                    <Link to="/" className="text-decoration-none footer-color"><span>Career</span></Link>                
+                    <Link to="/admin" className="text-decoration-none footer-color"><span>Admin</span></Link>                
                 </div>
 
                 <div className="col-xs-12 col-sm-6 col-lg-3 col-xlg-3">
