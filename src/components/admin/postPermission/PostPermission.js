@@ -12,7 +12,7 @@ const PostPermission = () => {
     },[dispatch])
 
     const data = useSelector(state => state.recentJob.recentJob )
-    
+
 
     return (
         <div >
@@ -20,9 +20,9 @@ const PostPermission = () => {
                 <thead>
                     <tr>
                         <th>Approved</th>
+                        <th>Job Title</th>
                         <th>Company</th>
                         <th>Country</th>
-                        <th>Job Title</th>
                         <th>Action</th>
                     </tr>
                 </thead>
