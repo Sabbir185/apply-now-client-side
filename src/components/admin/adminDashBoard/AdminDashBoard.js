@@ -1,6 +1,6 @@
 import React from 'react';
 import './AdminDashBoard.css';
-import defaultImage from '../../../images/profileImageLogo.png'
+import defaultImage from '../../../images/adminAvatar.png'
 import jwt_decode from 'jwt-decode'
 import InfoContainer from '../infoContainer/InfoContainer';
 import { isToken } from '../../../utils/auth';

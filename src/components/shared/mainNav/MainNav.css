@@ -1,6 +1,7 @@
 .bg-color {
-    background-image: linear-gradient(60deg, #e1e8e9, #abebc64b );
     font-weight: 500;
+    border-bottom: 1px solid #00CDA0;
+    background-color: #15daafa2;
 }
 .bg-color__dropdown {
     font-weight: 500;
@@ -13,6 +14,10 @@
 
 .logo {
     width: 80px;
+}
+
+.text-style {
+    color: #27453dc2;
 }
 
 

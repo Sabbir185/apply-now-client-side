@@ -15,24 +15,27 @@ const PostPermission = () => {
 
 
     return (
-        <div >
-            <Table striped bordered hover size="sm" responsive className="text-center">
-                <thead>
-                    <tr>
-                        <th>Approved</th>
-                        <th>Job Title</th>
-                        <th>Company</th>
-                        <th>Country</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        data?.map(recruiter => <TableRowData jobData={recruiter}/>)
-                    }
-                </tbody>
-            </Table>
-        </div>
+        <section>
+            <h6 className="text-success fw-bold">Total Post : {data.length}</h6>
+            <div>
+                <Table striped bordered hover size="sm" responsive className="text-center">
+                    <thead>
+                        <tr>
+                            <th>Approved</th>
+                            <th>Job Title</th>
+                            <th>Company</th>
+                            <th>Country</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            data?.map(recruiter => <TableRowData jobData={recruiter}/>)
+                        }
+                    </tbody>
+                </Table>
+            </div>
+        </section>
     );
 };
 

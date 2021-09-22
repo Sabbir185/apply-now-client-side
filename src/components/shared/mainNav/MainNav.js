@@ -41,14 +41,13 @@ const MainNav = () => {
         <Container>
           <Navbar.Brand>
             <Link to='/' className='nav-link me-3 text-dark'>
-              {/* <span className="text-dark">ApplyNow</span> */}
               <img src={logo} alt="" className="img-fluid logo"/>
             </Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-                  <Link to='/home' className='nav-link me-3 text-dark'>Home</Link>
+                  <Link to='/home' className='nav-link me-3 text-style'>Home</Link>
                   <NavDropdown title="Services" id="nav-dropdown-dark-example" className="me-3">
                       <NavDropdown.Item className="bg-color__dropdown">Education</NavDropdown.Item>
                       <NavDropdown.Item className="bg-color__dropdown">Technologies</NavDropdown.Item>
@@ -79,8 +78,8 @@ const MainNav = () => {
                     )
                     :
                     <div className="d-flex" style={{display: `${toggle ? 'none' : 'block' }`}}>
-                        <Link to='/sign-up' className='nav-link me-3 text-dark'>SignUp</Link>
-                        <Link to='/login' className='nav-link me-3 text-dark'>Login</Link>
+                        <Link to='/sign-up' className='nav-link me-3 text-style'>SignUp</Link>
+                        <Link to='/login' className='nav-link me-3 text-style'>Login</Link>
                     </div>
                   }
                 

@@ -23,7 +23,7 @@ const AllUser = () => {
 
     return (
         <section>
-            <h6 className="text-success fw-bold">Total user : {userData.totalUser}</h6>
+            <h6 className="text-success fw-bold">Total User : {userData.totalUser}</h6>
 
             <div>
                 <Table striped bordered hover size="sm" responsive className="text-center">

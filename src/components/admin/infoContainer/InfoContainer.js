@@ -62,7 +62,7 @@ const InfoContainer = () => {
     };
 
     return (
-        <div className={classes.root} >
+        <div className={classes.root}>
             <AppBar position="static" color="default">
                 <Tabs
                     value={value}
