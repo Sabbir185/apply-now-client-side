@@ -9,6 +9,7 @@ import Box from '@material-ui/core/Box';
 import PostPermission from '../postPermission/PostPermission';
 import AllUser from '../allUser/AllUser';
 import AllRecruiter from '../allRecruiter/AllRecruiter'
+import AddAdmin from '../addAdmin/AddAdmin';
 
 
 function TabPanel(props) {
@@ -88,7 +89,7 @@ const InfoContainer = () => {
                 <AllRecruiter />
             </TabPanel>
             <TabPanel value={value} index={3}>
-                <h2>add admin</h2>
+                <AddAdmin />
             </TabPanel>
       
         </div>
