@@ -49,11 +49,11 @@ const MainNav = () => {
             <Nav className="ms-auto">
                   <Link to='/home' className='nav-link me-3 text-style'>Home</Link>
                   <NavDropdown title="Services" id="nav-dropdown-dark-example" className="me-3">
-                      <NavDropdown.Item className="bg-color__dropdown">Education</NavDropdown.Item>
-                      <NavDropdown.Item className="bg-color__dropdown">Technologies</NavDropdown.Item>
-                      <NavDropdown.Item className="bg-color__dropdown">Blogs</NavDropdown.Item>
+                      <NavDropdown.Item href="https://www.udemy.com/" target="_blank" className="bg-color__dropdown">Education</NavDropdown.Item>
+                      <NavDropdown.Item href="https://sabbir-ahmmed.web.app/" target="_blank" className="bg-color__dropdown">About</NavDropdown.Item>
+                      <NavDropdown.Item href="https://dev.to/sabbir185" target="_blank" className="bg-color__dropdown">Blogs</NavDropdown.Item>
                       <NavDropdown.Divider />
-                      <NavDropdown.Item className="bg-color__dropdown">Career</NavDropdown.Item>
+                      <NavDropdown.Item href="https://www.linkedin.com/in/sabbir185/" target="_blank" className="bg-color__dropdown">Contact</NavDropdown.Item>
                   </NavDropdown>
                  
                   {
