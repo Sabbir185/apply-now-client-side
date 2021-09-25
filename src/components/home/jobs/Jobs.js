@@ -8,6 +8,7 @@ import arrowLeft from '../../../images/arrow (1).png'
 import arrowRight from '../../../images/arrow (2).png'
 import './Jobs.css'
 import RecentJob from '../../shared/recentJobSidebar/RecentJob';
+import Footer from '../../shared/footer/Footer'
 
 const Jobs = () => {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const Jobs = () => {
     } );
 
     // restricted to next page
-    const divided = totalPostCount / 3;
+    const divided = totalPostCount / 9;
     const totalData = parseInt(divided) === divided ? divided -1 : Math.floor(divided);
 
 
@@ -76,6 +77,7 @@ const Jobs = () => {
                 </div>
             </section>
 
+            <Footer />
         </div>
     );
 };

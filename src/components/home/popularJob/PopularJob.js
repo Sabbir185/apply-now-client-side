@@ -8,6 +8,7 @@ import arrowLeft from '../../../images/arrow (1).png'
 import arrowRight from '../../../images/arrow (2).png'
 import './PopularJob.css'
 import RecentJob from '../../shared/recentJobSidebar/RecentJob';
+import Footer from '../../shared/footer/Footer';
 
 const PopularJob = () => {
     const dispatch = useDispatch();
@@ -21,7 +22,7 @@ const PopularJob = () => {
     } );
 
     // restricted to next page
-    const divided = totalPostCount / 3;
+    const divided = totalPostCount / 9;
     const totalData = parseInt(divided) === divided ? divided - 1 : Math.floor(divided);
 
     // next page for popular keyword
@@ -30,7 +31,7 @@ const PopularJob = () => {
             count -= 1;
             const payload = {
                 page: count,
-                limit: 3,
+                limit: 9,
             }
     
             dispatch(popularJobPosts(data[0].title, payload));
@@ -43,7 +44,7 @@ const PopularJob = () => {
             count += 1;
             const payload = {
                 page: count,
-                limit: 3,
+                limit: 9,
             }
     
             dispatch(popularJobPosts(data[0].title, payload));
@@ -75,6 +76,8 @@ const PopularJob = () => {
                     </div>
                 </div>
             </section>
+
+            <Footer />
         </div>
     );
 };

@@ -25,7 +25,7 @@ const Filtering = ( ) => {
         // initial data send
         const payload = {          
                  page: "1",
-                 limit: "3"
+                 limit: "9"
         }
         dispatch(popularJobPosts(key, payload));
        

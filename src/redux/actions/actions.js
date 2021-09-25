@@ -11,7 +11,7 @@ import axios from 'axios';
 export const getAllPost = (payload, page = 1 ) => {
     return async (dispatch) => {
         try {
-            const postedData = await axios.post(`http://localhost:8080/jobPost/jobs?page=${page}&limit=3`, payload);
+            const postedData = await axios.post(`http://localhost:8080/jobPost/jobs?page=${page}&limit=9`, payload);
 
             dispatch({
                 type: get_all_job_post,

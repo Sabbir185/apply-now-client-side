@@ -5,6 +5,7 @@ import MainNav from '../../shared/mainNav/MainNav';
 import hiring1 from '../../../images/b (1).png';
 import axios from 'axios';
 import './DetailsView.css';
+import Footer from '../../shared/footer/Footer';
 
 // name capitalize fixed
 const capitalWord = (word='') => {
@@ -90,7 +91,7 @@ const DetailsView = () => {
                             </div>
 
                             <button 
-                            type="submit" className="btn search-button text-center mt-4" 
+                            type="submit" className="btn search-button text-center mt-5" 
                             > 
                                 &nbsp;&nbsp;&nbsp;&nbsp; Apply Now
                             </button>
@@ -99,6 +100,8 @@ const DetailsView = () => {
                     </div>
                 </div>
             }
+
+            <Footer />
 
         </div>
     );
