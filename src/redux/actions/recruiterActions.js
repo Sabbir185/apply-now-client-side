@@ -13,7 +13,7 @@ export const recruiterSignUpData = ( payload ) => {
 export const recruiterLoginAction = ( payload ) => {
     return async (dispatch) => {
         try {
-            const response = await axios.post('http://localhost:8080/recruiter/login', payload);
+            const response = await axios.post('https://desolate-sands-39522.herokuapp.com/recruiter/login', payload);
 
             dispatch({
                 type: 'recruiter_login_data',

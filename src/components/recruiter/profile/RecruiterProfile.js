@@ -19,7 +19,7 @@ const RecruiterProfile = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        fetch(`http://localhost:8080/recruiter/${id}`)
+        fetch(`https://desolate-sands-39522.herokuapp.com/recruiter/${id}`)
         .then(res => res.json())
         .then(data => {
             setRecruiterData(data.user[0]);
@@ -47,7 +47,7 @@ const RecruiterProfile = (props) => {
                 <div className="col-sm-12 col-md-4 col-lg-4 col-xlg-4 profile-info bg-light">
                     {
                         image? 
-                        <img src={`http://localhost:8080/${image}`} alt="" className="img-fluid profile-img border-2 border-success"/>
+                        <img src={`https://desolate-sands-39522.herokuapp.com/${image}`} alt="" className="img-fluid profile-img border-2 border-success"/>
                         :
                         <img src={profileImg} alt="" className="img-fluid profile-img border-0"/>
                     }

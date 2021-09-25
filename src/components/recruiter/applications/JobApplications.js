@@ -11,7 +11,7 @@ const JobApplications = () => {
     useEffect( () => {
         try {
             const recruiterId = {recruiterId: id}
-            fetch(`http://localhost:8080/application/findByRecruiterId`, {
+            fetch(`https://desolate-sands-39522.herokuapp.com/application/findByRecruiterId`, {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(recruiterId)

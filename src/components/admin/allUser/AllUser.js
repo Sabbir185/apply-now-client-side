@@ -9,7 +9,7 @@ const AllUser = () => {
     useEffect(() => {
         try {
             async function fetchData(){
-                const res = await axios.get('http://localhost:8080/user/getAll')
+                const res = await axios.get('https://desolate-sands-39522.herokuapp.com/user/getAll')
                 if(res.data){
                     setUserData(res.data)
                 }

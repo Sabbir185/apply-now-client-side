@@ -9,7 +9,7 @@ const AllRecruiter = () => {
     useEffect(() => {
         try {
             async function fetchData(){
-                const res = await axios.get('http://localhost:8080/recruiter/')
+                const res = await axios.get('https://desolate-sands-39522.herokuapp.com/recruiter/')
                 if(res.data){
                     setRecruiterData(res.data)
                 }

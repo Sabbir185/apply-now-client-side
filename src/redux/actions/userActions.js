@@ -11,7 +11,7 @@ import axios from 'axios';
 export const userSignUp = (payload) => {
     return async (dispatch) => {
         try {   
-            const userResponse = await axios.post('http://localhost:8080/user', payload ,{
+            const userResponse = await axios.post('https://desolate-sands-39522.herokuapp.com/user', payload ,{
                 headers: {'Content-Type': 'application/json'}
             });
 
@@ -34,7 +34,7 @@ export const userSignUp = (payload) => {
 export const userLoginAction = (payload) => {
     return async (dispatch) => {
         try {
-            const loginData = await axios.post('http://localhost:8080/user/login', payload);
+            const loginData = await axios.post('https://desolate-sands-39522.herokuapp.com/user/login', payload);
 
             dispatch({
                 type: user_login_data,

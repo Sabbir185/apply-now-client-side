@@ -19,7 +19,7 @@ const AdminLogin = () => {
             const config = {
                 headers: {'content-type':'application/json'}
             }
-            const res = await axios.post('http://localhost:8080/admin/login', data, config);
+            const res = await axios.post('https://desolate-sands-39522.herokuapp.com/admin/login', data, config);
             if(res.data) {
                 toast.success("Login Successful!");
                 setTimeout(() => {

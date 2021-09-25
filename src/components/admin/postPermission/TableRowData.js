@@ -17,7 +17,7 @@ const TableRowData = (props) => {
             const data = {
                 isApproved: approve
             }
-            const res = await axios.patch(`http://localhost:8080/jobPost/${id}`,data, {
+            const res = await axios.patch(`https://desolate-sands-39522.herokuapp.com/jobPost/${id}`,data, {
                                     headers: {'Authorization': `Bearer ${token}`} });
             if(res.data) {
                 toast.success("Approved!, Please refresh page..")
@@ -30,7 +30,7 @@ const TableRowData = (props) => {
     // handle post delete
     const handleDelete = async (id) => {
         try {
-            const res = await axios.delete(`http://localhost:8080/jobPost/${id}`, {
+            const res = await axios.delete(`https://desolate-sands-39522.herokuapp.com/jobPost/${id}`, {
                                     headers: {'Authorization': `Bearer ${token}`} });
             if(res.data) {
                 toast.warning("Deleted!, Please refresh page..")

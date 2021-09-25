@@ -11,7 +11,7 @@ const UserProfile = (props) => {
     const [userData, setUserData] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:8080/user/${id}`)
+        fetch(`https://desolate-sands-39522.herokuapp.com/user/${id}`)
         .then(res => res.json())
         .then(data => {
             setUserData(data.user)
@@ -39,7 +39,7 @@ const UserProfile = (props) => {
                 <div className="col-sm-12 col-md-4 col-lg-4 col-xlg-4 profile-info">
                     {
                         image? 
-                        <img src={`http://localhost:8080/${image}`} alt="" className="img-fluid profile-img border-2 border-success"/>
+                        <img src={`https://desolate-sands-39522.herokuapp.com/${image}`} alt="" className="img-fluid profile-img border-2 border-success"/>
                         :
                         <img src={profileImg} alt="" className="img-fluid profile-img border-0"/>
                     }

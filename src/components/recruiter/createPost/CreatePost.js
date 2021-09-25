@@ -11,7 +11,7 @@ const CreatePost = () => {
 
     const onSubmit = async data => {
         try {
-            const res = await axios.post('http://localhost:8080/jobPost', data, {
+            const res = await axios.post('https://desolate-sands-39522.herokuapp.com/jobPost', data, {
                                         headers: {'Authorization': `Bearer ${token}`} });
             if(res.data) {
                 alert(res.data.status);

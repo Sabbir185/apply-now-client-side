@@ -14,7 +14,7 @@ const AddAdmin = () => {
 
     const onSubmit = async data => {
         try {
-            const res = await axios.post('http://localhost:8080/admin', data, {
+            const res = await axios.post('https://desolate-sands-39522.herokuapp.com/admin', data, {
                                     headers: {'Authorization': `Bearer ${token}`} });
             if(res.data) {
                 toast.success("New Admin Created Successfully! Login now...");

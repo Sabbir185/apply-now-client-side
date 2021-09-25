@@ -43,7 +43,7 @@ const DetailsView = () => {
                 userCV: e.target[0].value
             }
 
-            const res = await axios.post('http://localhost:8080/application',application, 
+            const res = await axios.post('https://desolate-sands-39522.herokuapp.com/application',application, 
                                     { headers: {'Authorization': `Bearer ${token}`} });
 
             if(res.data){

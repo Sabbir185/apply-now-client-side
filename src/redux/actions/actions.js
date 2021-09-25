@@ -11,7 +11,7 @@ import axios from 'axios';
 export const getAllPost = (payload, page = 1 ) => {
     return async (dispatch) => {
         try {
-            const postedData = await axios.post(`http://localhost:8080/jobPost/jobs?page=${page}&limit=9`, payload);
+            const postedData = await axios.post(`https://desolate-sands-39522.herokuapp.com/jobPost/jobs?page=${page}&limit=9`, payload);
 
             dispatch({
                 type: get_all_job_post,
@@ -32,7 +32,7 @@ export const getAllPost = (payload, page = 1 ) => {
 export const popularJobPosts = ( key, payload ) => {
     return async (dispatch) => {
         try {
-            const postedData = await axios.post(`http://localhost:8080/jobPost/popular/${key}`, payload);
+            const postedData = await axios.post(`https://desolate-sands-39522.herokuapp.com/jobPost/popular/${key}`, payload);
 
             dispatch({
                 type: get_all_job_post,
@@ -54,7 +54,7 @@ export const popularJobPosts = ( key, payload ) => {
 export const recentJobPost = () => {
     return async (dispatch) => {
         try {
-            const recentPosted = await axios.get('http://localhost:8080/jobPost');
+            const recentPosted = await axios.get('https://desolate-sands-39522.herokuapp.com/jobPost');
 
             dispatch({
                 type: getAllData,

@@ -10,7 +10,7 @@ const ApplicationCard = (props) => {
     const handleStatus = async (status, id) => {
         try{
             const data = {status, _id: id};
-            const res = await axios.patch('http://localhost:8080/application/statusUpdate', data);
+            const res = await axios.patch('https://desolate-sands-39522.herokuapp.com/application/statusUpdate', data);
             if(res.data){
                 alert("Action updated!");
             }

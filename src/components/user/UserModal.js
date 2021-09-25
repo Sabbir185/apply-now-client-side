@@ -37,7 +37,7 @@ const UserModal = ({modalIsOpen, closeModal, id}) => {
             const config = {
                 Headers: {'content-type': 'multipart/from-data'}
             }
-            const res = await axios.patch(`http://localhost:8080/user/update/${id}`, formData, config);
+            const res = await axios.patch(`https://desolate-sands-39522.herokuapp.com/user/update/${id}`, formData, config);
 
             if(res.data) {
                 toast.success('Profile updated successFully!');

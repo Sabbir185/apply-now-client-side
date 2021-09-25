@@ -13,7 +13,7 @@ const JobPostCard = (props) => {
 
     const handleDelete = async (id) => {
         try {
-            const res = await axios.delete(`http://localhost:8080/jobPost/${id}`, { headers:    {'Authorization': `Bearer ${token}`} });
+            const res = await axios.delete(`https://desolate-sands-39522.herokuapp.com/jobPost/${id}`, { headers:    {'Authorization': `Bearer ${token}`} });
             if(res.data){
                 alert(res.data.status);
                 history.push('/');

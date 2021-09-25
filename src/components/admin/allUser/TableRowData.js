@@ -12,7 +12,7 @@ const TableRowData = (props) => {
     // handle user delete
     const handleDelete = async (id) => {
         try {
-            const res = await axios.delete(`http://localhost:8080/user/${id}`, {
+            const res = await axios.delete(`https://desolate-sands-39522.herokuapp.com/user/${id}`, {
                                     headers: {'Authorization': `Bearer ${token}`} });
             if(res.data) {
                 toast.warning("Deleted!, Please refresh page..")

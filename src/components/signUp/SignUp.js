@@ -33,7 +33,7 @@ const SignUp = () => {
     // handle recruiter sign up
     const onSubmit = async info => {
        try {
-            const res = await axios.post('http://localhost:8080/recruiter/', info);
+            const res = await axios.post('https://desolate-sands-39522.herokuapp.com/recruiter/', info);
             setRecruiterSignUp(res.data);
             dispatch(recruiterSignUpData(res.data));
 
