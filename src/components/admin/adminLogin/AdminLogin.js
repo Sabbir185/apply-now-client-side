@@ -9,6 +9,7 @@ import { useHistory } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { isToken } from '../../../utils/auth';
+import jwt_decode from 'jwt-decode'
 
 const AdminLogin = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -32,12 +33,16 @@ const AdminLogin = () => {
         }
     };
 
-    const token = localStorage.getItem('jwt');
-    if(token){
-        if(isToken()) {
-            history.push('/admin-dashboard')
+
+    if(isToken()) {
+        const { role } = jwt_decode(JSON.parse(localStorage.getItem('jwt')));
+        if(role === 'admin'){
+            if(isToken()) {
+                history.push('/admin-dashboard')
+            }
         }
     }
+
 
     return (
         <section className="admin">

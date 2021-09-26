@@ -11,6 +11,7 @@ import Home from "./components/home/Home";
 import Jobs from "./components/home/jobs/Jobs";
 import PopularJob from "./components/home/popularJob/PopularJob";
 import Login from "./components/login/Login";
+import PrivateRoute from "./components/privateRoute/PrivateRoute";
 import Profile from "./components/profile/Profile";
 import NoMatch from "./components/shared/noMatchRoute/NoMatch";
 import SignUp from "./components/signUp/SignUp";
@@ -38,9 +39,9 @@ function App() {
           <PopularJob />
         </Route>
 
-        <Route path="/view-details/:id">
+        <PrivateRoute path="/view-details/:id">
           <DetailsView />
-        </Route>
+        </PrivateRoute>
 
         <Route path="/sign-up">
           <SignUp />
