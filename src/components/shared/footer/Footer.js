@@ -42,7 +42,7 @@ const Footer = () => {
             </section>
 
             <div className="text-center pt-5 fst-italic me-5">
-                <small>©Copyright { new Date().getFullYear() }</small> <br />
+                <small>Copyright © { new Date().getFullYear() }</small> <br />
                 <small>Built with MERN Stack, by <a href="https://www.linkedin.com/in/sabbir185/" target="_blank" rel="noreferrer" className="text-decoration-none text-dark">SABBIR AHMMED</a></small>
             </div>
 
