@@ -9,8 +9,10 @@ import arrowRight from '../../../images/arrow (2).png'
 import './PopularJob.css'
 import RecentJob from '../../shared/recentJobSidebar/RecentJob';
 import Footer from '../../shared/footer/Footer';
+import LinearColor from '../../shared/LinearColor';
 
 const PopularJob = () => {
+    let loading = false;
     const dispatch = useDispatch();
 
     let count,totalPostCount ;
@@ -51,30 +53,38 @@ const PopularJob = () => {
         }
     }
 
+    data? loading = true : loading = false;
+
     return (
         <div>
             <MainNav />
             
             {/* data display */}
             <section className="mt-5 job-posts">
-                <div className="row">
-                    <div className="col-sm-12 col-md-8 col-lg-9 col-xlg-9 card-style">
-                        <div className='display-control'>
-                            {
-                                data?.map((info) => <JobCard key={info._id} data={info} /> )
-                            }
-                        </div>
-                                               
-                        <div className="next-previous mt-3">
-                            <img src={arrowLeft} alt="" onClick={() => paginationMinusKeyword()} className="me-2"/>
-                            <img src={arrowRight} alt="" onClick={() => paginationPlusKeyword()} className="ms-2"/>
-                        </div>
-                   </div>
+                {
+                    loading ?
 
-                    <div className="col">
-                        <RecentJob />
+                    <div className="row">
+                        <div className="col-sm-12 col-md-8 col-lg-9 col-xlg-9 card-style">
+                            <div className='display-control'>
+                                {
+                                    data?.map((info) => <JobCard key={info._id} data={info} /> )
+                                }
+                            </div>
+                                                
+                            <div className="next-previous mt-3">
+                                <img src={arrowLeft} alt="" onClick={() => paginationMinusKeyword()} className="me-2"/>
+                                <img src={arrowRight} alt="" onClick={() => paginationPlusKeyword()} className="ms-2"/>
+                            </div>
+                        </div>
+
+                        <div className="col">
+                            <RecentJob />
+                        </div>
                     </div>
-                </div>
+                    :
+                    <LinearColor />
+                }
             </section>
 
             <Footer />
