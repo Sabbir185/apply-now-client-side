@@ -55,6 +55,7 @@ const PopularJob = () => {
 
     data? loading = true : loading = false;
 
+
     return (
         <div>
             <MainNav />

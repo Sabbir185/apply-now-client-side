@@ -11,7 +11,7 @@ const capitalWord = (word) => {
 
 
 const JobCard = (props) => {
-    const { title, jobType, company, country, _id } = props.data;
+    const { title, jobType, company, country, _id, isApproved } = props.data;
 
 
     const history = useHistory();
@@ -23,7 +23,7 @@ const JobCard = (props) => {
     return (
         <div 
             className="card border-muted mb-3 text-center job-card" 
-            style={{ maxWidth: "18rem" }}
+            style={{ maxWidth: "18rem", display: `${isApproved? "block" : "none"}` }}
             onClick={() => passIdHandler(_id)}
         >
             <div className="card-header fw-bold">{title.toUpperCase()}</div>
