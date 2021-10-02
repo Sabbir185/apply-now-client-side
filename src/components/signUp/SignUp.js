@@ -142,7 +142,7 @@ const SignUp = () => {
                         <input type="text" {...register("name", { required: true })} placeholder="Name" className="form-control mt-3"/>
                         {errors.name && <span className="text-danger">Name needs at lest 3 characters</span>}
                         
-                        <input type="text" {...register("password", { required: true })} placeholder="Password" className="form-control mt-3"/>
+                        <input type="password" {...register("password", { required: true })} placeholder="Password" className="form-control mt-3"/>
                         {errors.password && <span className="text-danger">Password needs at lest 6 characters</span>}
                         
                         <input type="text" {...register("email", { required: true })} placeholder="Email" className="form-control mt-3"/>
@@ -172,7 +172,7 @@ const SignUp = () => {
 
                        <input type="text" name="email" placeholder="Email" className="form-control mt-2"/>
 
-                       <input type="text" name="password" placeholder="Password" className="form-control mt-2"/>
+                       <input type="password" name="password" placeholder="Password" className="form-control mt-2"/>
 
                        <button type="submit" className="btn search-button text-center mt-4 form-control"> 
                             &nbsp;&nbsp;&nbsp;&nbsp; Sign Up

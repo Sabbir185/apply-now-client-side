@@ -78,7 +78,7 @@ const Login = () => {
                     <form  className="mx-5" onSubmit={handleLogin}>
                        <input type="text" name="username" placeholder="Username" className="form-control"/>
 
-                       <input type="text" name="password" placeholder="Password" className="form-control mt-2"/>
+                       <input type="password" name="password" placeholder="Password" className="form-control mt-2"/>
 
                        <button type="submit" className="btn search-button text-center mt-4 form-control"> 
                             &nbsp;&nbsp;&nbsp;&nbsp; Login
