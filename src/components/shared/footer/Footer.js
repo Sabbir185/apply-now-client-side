@@ -28,8 +28,8 @@ const Footer = () => {
 
                 <div className="col-xs-12 col-sm-6 col-lg-3 col-xlg-3">
                     <h5 className="text-dark mb-3">Apply-Now</h5>
-                    <Link to="/" className="text-decoration-none footer-color"><span>About</span></Link> <br />
-                    <Link to="/" className="text-decoration-none footer-color"><span>Blogs</span></Link> <br />
+                    <a href="https://sabbir-ahmmed.web.app/" target="_blank" rel="noreferrer" className="text-decoration-none footer-color"><span>About</span></a> <br />
+                    <a href="https://dev.to/sabbir185" target="_blank" rel="noreferrer" className="text-decoration-none footer-color"><span>Blogs</span></a> <br />
                     <Link to="/admin" className="text-decoration-none footer-color"><span>Admin</span></Link>                
                 </div>
 
